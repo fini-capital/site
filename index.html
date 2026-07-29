@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>VÉRTICE Consultoria Financeira · Crédito, Investimentos e Proteção</title>
-<meta name="description" content="Consultoria financeira PJ e PF. Diagnóstico técnico + ecossistema de parceiros homologados para crédito, investimentos e proteção patrimonial sob uma única mesa.">
+<title>Fini Capital · Consultoria Financeira · Crédito, Investimentos e Proteção</title>
+<meta name="description" content="Consultoria financeira PJ e PF pela Fini Capital. Diagnóstico técnico + ecossistema de parceiros homologados para crédito, investimentos e proteção patrimonial sob uma única mesa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,14 +12,20 @@
   :root{
     --white:#ffffff;
     --off-white:#faf9f6;
+    --primary:#0f6472;
+    --primary-deep:#0a4b56;
+    --primary-light:#3d8b98;
+    --secondary:#faf9f6;
     --black:#0d0d0d;
     --charcoal:#1c1c1c;
-    --gray:#6b6b66;
-    --gray-light:#9a978f;
-    --line:#e6e3da;
-    --gold:#a9812c;
-    --gold-deep:#8a691f;
-    --gold-light:#d9bd7a;
+    --gray:#5c7075;
+    --gray-light:#9ab0b3;
+    --gray-on-primary:#cfe1e3;
+    --line:#dbe4e3;
+    --line-on-primary:rgba(250,249,246,0.18);
+    --gold:#d3af37;
+    --gold-deep:#d3af37;
+    --gold-light:#e6cb70;
     --max:900px;
     --wide:1180px;
   }
@@ -27,7 +33,7 @@
   html{scroll-behavior:smooth;}
   body{
     background:var(--white);
-    color:var(--black);
+    color:var(--charcoal);
     font-family:'Inter',sans-serif;
     font-size:16px;
     line-height:1.65;
@@ -39,8 +45,9 @@
     font-weight:500;
     line-height:1.14;
     letter-spacing:-0.01em;
+    color:var(--primary-deep);
   }
-  em{font-style:italic;color:var(--gold-deep);}
+  em{font-style:italic;color:var(--gold);}
   a{color:inherit;text-decoration:none;}
   .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.02em;}
   .wrap{max-width:var(--wide);margin:0 auto;padding:0 32px;}
@@ -48,44 +55,51 @@
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;
     font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--gold-deep);
+    color:var(--primary);
     display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 20px;
   }
-  .eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:var(--gold);display:inline-block;}
+  .eyebrow::before,.eyebrow::after{content:'';width:22px;height:1px;background:var(--gold-deep);display:inline-block;}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
     padding:16px 32px;font-family:'Inter',sans-serif;font-weight:600;
     font-size:14.5px;letter-spacing:0.01em;border-radius:3px;
     transition:all .25s ease;cursor:pointer;border:1px solid transparent;
   }
-  .btn-primary{background:var(--black);color:var(--white);border-color:var(--black);}
-  .btn-primary:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
+  .btn-primary,.btn-ghost,.btn-gold{background:var(--gold);color:var(--primary-deep);border-color:var(--gold);}
+  .btn-primary:hover,.btn-ghost:hover,.btn-gold:hover{background:var(--primary-deep);color:var(--secondary);border-color:var(--primary-deep);}
   .btn-primary .arrow{transition:transform .25s ease;}
   .btn-primary:hover .arrow{transform:translateX(4px);}
-  .btn-ghost{background:transparent;color:var(--black);border-color:var(--black);}
-  .btn-ghost:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
-  .btn-gold{background:var(--gold);color:var(--black);border-color:var(--gold);}
-  .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);}
+
+  /* ALTERNÂNCIA DE SEÇÃO — principal x secundária */
+  .bg-primary{background:var(--primary);color:var(--secondary);}
+  .bg-primary h1,.bg-primary h2,.bg-primary h3,.bg-primary h4{color:var(--secondary);}
+  .bg-primary p{color:var(--gray-on-primary);}
+  .bg-primary .eyebrow{color:var(--gold);}
+  .bg-primary .eyebrow::before,.bg-primary .eyebrow::after{background:var(--gold-deep);}
+  .bg-primary a:not(.btn){color:var(--secondary);}
+
+  .bg-secondary{background:var(--secondary);color:var(--charcoal);}
+  .bg-secondary h1,.bg-secondary h2,.bg-secondary h3,.bg-secondary h4{color:var(--primary-deep);}
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
 
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+    background:rgba(250,249,246,.92);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
-  .logo{font-family:'Fraunces',serif;font-size:21px;font-weight:500;letter-spacing:0.02em;}
+  .logo{font-family:'Fraunces',serif;font-size:21px;font-weight:500;letter-spacing:0.02em;color:var(--primary-deep);}
   .logo span{color:var(--gold-deep);}
   .nav-links{display:flex;gap:26px;align-items:center;}
   .nav-links a{font-size:13px;font-weight:500;color:var(--charcoal);position:relative;padding:4px 0;}
-  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s ease;}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold-deep);transition:width .25s ease;}
   .nav-links a:hover::after{width:100%;}
   .nav-cta{display:flex;}
 
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:0;}
-  .nav-toggle span{display:block;width:100%;height:2px;background:var(--black);transition:transform .25s ease, opacity .25s ease;}
+  .nav-toggle span{display:block;width:100%;height:2px;background:var(--primary-deep);transition:transform .25s ease, opacity .25s ease;}
   .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .nav-toggle.open span:nth-child(2){opacity:0;}
   .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
@@ -93,7 +107,7 @@
   .mobile-menu{
     display:none;
     position:fixed;top:76px;left:0;right:0;bottom:0;
-    background:var(--white);
+    background:var(--secondary);
     z-index:99;
     flex-direction:column;
     align-items:center;
@@ -112,28 +126,27 @@
     display:flex;align-items:center;justify-content:center;
     position:relative;
     padding:140px 0 80px;
-    background:radial-gradient(1200px 600px at 50% -10%, rgba(169,129,44,0.09), transparent 60%), var(--off-white);
+    background:radial-gradient(1200px 600px at 50% -10%, rgba(255,215,0,0.12), transparent 60%), var(--primary);
     overflow:hidden;
   }
   .hero-inner{max-width:820px;margin:0 auto;}
   .hero h1{font-size:clamp(34px,5.4vw,64px);margin-bottom:28px;}
   .hero-flourish{width:64px;height:14px;margin:0 auto 30px;opacity:0.9;}
-  .hero-sub{font-size:18px;color:var(--charcoal);max-width:600px;margin:0 auto 40px;}
+  .hero-sub{font-size:18px;color:var(--gray-on-primary);max-width:600px;margin:0 auto 40px;}
   .hero-ctas{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:64px;}
 
   section{padding:56px 0;}
   .section-head{max-width:680px;margin:0 auto 34px;}
   .section-head h2{font-size:clamp(28px,3.4vw,44px);}
   .section-head p{margin-top:18px;font-size:16.5px;color:var(--charcoal);}
+  .bg-primary .section-head p{color:var(--gray-on-primary);}
   /* SOBRE */
-  .sobre{background:var(--white);}
   .sobre-body p{font-size:16px;color:var(--charcoal);margin:0 auto 20px;max-width:700px;}
   .sobre-pillar{border-top:1px solid var(--line);padding-top:18px;}
-  .sobre-pillar h4{font-size:15px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;}
+  .sobre-pillar h4{font-size:15px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;color:var(--primary-deep);}
   .sobre-pillar p{font-size:13.5px;color:var(--gray);}
 
   /* METODO — redesign moderno */
-  .method{background:var(--off-white);}
   .method-flow{
     display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
     max-width:var(--wide);margin:0 auto;position:relative;
@@ -145,26 +158,26 @@
   }
   .method-step-card{
     position:relative;z-index:2;
-    background:var(--white);
-    border:1px solid var(--line);
+    background:var(--secondary);
+    border:1px solid rgba(10,75,86,0.12);
     border-radius:10px;
     padding:38px 26px 32px;
     transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
   }
   .method-step-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 24px 48px -24px rgba(13,13,13,0.18);
+    box-shadow:0 24px 48px -24px rgba(10,75,86,0.3);
     border-color:var(--gold-light);
   }
   .method-icon-circle{
     width:56px;height:56px;border-radius:50%;
-    background:var(--black);color:var(--gold-light);
+    background:var(--primary-deep);color:var(--gold);
     display:flex;align-items:center;justify-content:center;
     margin:0 auto 22px;
     font-family:'IBM Plex Mono',monospace;font-size:16px;
-    box-shadow:0 0 0 6px var(--off-white);
+    box-shadow:0 0 0 6px var(--secondary);
   }
-  .method-step-card h3{font-size:19px;font-weight:500;margin-bottom:10px;}
+  .method-step-card h3{font-size:19px;font-weight:500;margin-bottom:10px;color:var(--primary-deep);}
   .method-step-card p{font-size:13.5px;color:var(--gray);line-height:1.6;}
   .method-step-eyebrow{
     font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
@@ -173,40 +186,40 @@
 
   /* PILARES PJ / PF — cards de serviço */
   .pillars{padding:0;}
-  #pj{background:var(--white);}
-  #pf{background:var(--off-white);}
-  #pf .service-card{background:var(--white);}
-  .pillar{padding:56px 0;border-bottom:1px solid var(--line);}
-  .pillar:last-child{border-bottom:none;}
+  .pillar{padding:56px 0;}
   .pillar-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:22px;display:block;}
+  .bg-primary .pillar-tag{color:var(--gold);}
   .pillar h3{font-size:clamp(28px,3.4vw,44px);margin-bottom:24px;max-width:720px;margin-left:auto;margin-right:auto;}
   .pillar-solution{font-size:16.5px;color:var(--charcoal);margin:0 auto 36px;max-width:660px;}
+  .bg-primary .pillar-solution{color:var(--gray-on-primary);}
   .service-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
     max-width:var(--wide);margin:0 auto 44px;text-align:left;
   }
   .service-card{
-    background:var(--off-white);
+    background:var(--white);
     border:1px solid var(--line);
     border-radius:10px;
     padding:28px 24px;
     transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -24px rgba(13,13,13,0.18);border-color:var(--gold-light);}
+  .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -24px rgba(10,75,86,0.25);border-color:var(--gold-light);}
   .service-icon{
     width:44px;height:44px;border-radius:50%;
     background:var(--white);border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
-    margin-bottom:18px;color:var(--gold-deep);
+    margin-bottom:18px;color:var(--primary);
   }
   .service-icon svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
-  .service-card h4{font-size:15.5px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;}
+  .service-card h4{font-size:15.5px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;color:var(--primary-deep);}
   .service-card p{font-size:13px;color:var(--gray);line-height:1.55;}
   .service-card-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
   .service-card-head .service-icon{margin-bottom:0;flex-shrink:0;}
   .service-card-head h4{margin-bottom:0;}
+  .bg-primary .service-card,.bg-primary .method-step-card,.bg-primary .eco-card{background:var(--secondary);border-color:rgba(10,75,86,0.12);}
+  .bg-primary .service-card h4,.bg-primary .service-card p,.bg-primary .eco-card h4,.bg-primary .eco-card p{color:var(--gray);}
+  .bg-primary .service-card h4,.bg-primary .eco-card h4{color:var(--primary-deep);}
   /* PARCEIROS */
-  #parceiros{background:var(--white);}
   .hub-intro{max-width:700px;margin:0 auto 46px;}
   .hub-intro p{font-size:16px;color:var(--charcoal);margin-bottom:16px;}
 
@@ -224,56 +237,59 @@
   .eco-grid.cols-3{grid-template-columns:repeat(3,1fr);max-width:820px;}
   .eco-grid.cols-1{grid-template-columns:1fr;max-width:280px;}
   .eco-card{
-    background:var(--off-white);border:1px solid var(--line);border-radius:10px;
+    background:var(--white);border:1px solid var(--line);border-radius:10px;
     padding:24px 20px;transition:transform .25s ease, border-color .25s ease, background .25s ease;
   }
-  .eco-card:hover{transform:translateY(-5px);border-color:var(--gold-light);box-shadow:0 20px 40px -24px rgba(13,13,13,0.18);}
+  .eco-card:hover{transform:translateY(-5px);border-color:var(--gold-light);box-shadow:0 20px 40px -24px rgba(10,75,86,0.25);}
   .eco-icon{
     width:40px;height:40px;border-radius:50%;
     background:var(--white);border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
-    margin-bottom:16px;color:var(--gold-deep);
+    margin-bottom:16px;color:var(--primary);
   }
   .eco-icon svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
-  .eco-card h4{font-size:14.5px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .eco-card h4{font-size:14.5px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;color:var(--primary-deep);}
   .eco-card p{font-size:12px;color:var(--gray);line-height:1.5;}
   .eco-card-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
   .eco-card-head .eco-icon{margin-bottom:0;flex-shrink:0;}
   .eco-card-head h4{margin-bottom:0;}
+  .hub-cta{margin-top:50px;text-align:center;}
 
   /* DEPOIMENTOS */
-  .depoimentos{background:var(--white);}
-  .depoimentos .depo-card{background:var(--off-white);}
   .depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);max-width:var(--wide);margin:0 auto;}
   .depo-card{background:var(--white);padding:38px 30px;display:flex;flex-direction:column;align-items:center;height:100%;}
   .depo-quote{font-family:'Fraunces',serif;font-style:italic;font-size:16.5px;color:var(--charcoal);line-height:1.55;margin-bottom:26px;flex-grow:1;}
-  .depo-quote::before{content:'"';color:var(--gold);}
-  .depo-quote::after{content:'"';color:var(--gold);}
+  .depo-quote::before{content:'"';color:var(--gold-deep);}
+  .depo-quote::after{content:'"';color:var(--gold-deep);}
   .depo-person{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
-  .depo-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--black);flex-shrink:0;}
-  .depo-name{font-size:14px;font-weight:600;}
+  .depo-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--primary-deep);flex-shrink:0;}
+  .depo-name{font-size:14px;font-weight:600;color:var(--primary-deep);}
   .depo-role{font-size:12.5px;color:var(--gray);}
   .depo-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold-deep);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:block;}
+  .bg-primary .depo-card{background:var(--secondary);border-color:rgba(10,75,86,0.12);}
+  .bg-primary .depo-quote,.bg-primary .depo-name{color:var(--primary-deep);}
 
   /* FAQ */
-  .faq{background:var(--off-white);}
   .faq-list{max-width:760px;margin:0 auto;text-align:left;}
   .faq-item{border-bottom:1px solid var(--line);}
+  .bg-primary .faq-item{border-bottom-color:var(--line-on-primary);}
   .faq-item summary{
     list-style:none;cursor:pointer;padding:24px 4px;
-    font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--black);
+    font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--primary-deep);
     display:flex;justify-content:space-between;align-items:center;gap:20px;
   }
+  .bg-primary .faq-item summary{color:var(--secondary);}
   .faq-item summary::-webkit-details-marker{display:none;}
   .faq-plus{
     font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--gold-deep);
     flex-shrink:0;transition:transform .25s ease;
   }
+  .bg-primary .faq-plus{color:var(--gold);}
   .faq-item[open] .faq-plus{transform:rotate(45deg);}
   .faq-answer{padding:0 4px 26px;font-size:15px;color:var(--gray);max-width:680px;line-height:1.7;}
+  .bg-primary .faq-answer{color:var(--gray-on-primary);}
 
   /* CONTATO */
-  .contato{background:var(--white);}
   .contato-info{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:var(--wide);margin:44px auto 0;}
   .contato-info-block h4{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
   .contato-info-block p, .contato-info-block a{font-size:14.5px;color:var(--charcoal);display:block;line-height:1.7;}
@@ -282,30 +298,30 @@
   .form-group{margin-bottom:20px;}
   .form-group label{display:block;font-size:12.5px;font-weight:600;margin-bottom:8px;color:var(--charcoal);}
   .form-group input, .form-group textarea{
-    width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--off-white);
-    font-family:'Inter',sans-serif;font-size:14.5px;border-radius:3px;transition:border-color .2s ease;
+    width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--white);
+    font-family:'Inter',sans-serif;font-size:14.5px;border-radius:3px;transition:border-color .2s ease;color:var(--charcoal);
   }
-  .form-group input:focus, .form-group textarea:focus{outline:none;border-color:var(--gold);}
+  .form-group input:focus, .form-group textarea:focus{outline:none;border-color:var(--primary);}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .form-note{font-size:12px;color:var(--gray);margin-top:16px;text-align:center;}
   .contato-form .btn{width:100%;justify-content:center;}
 
   /* CTA FINAL */
-  .cta-final{background:var(--off-white);padding:56px 0;border-top:1px solid var(--line);}
+  .cta-final{padding:56px 0;}
   .cta-final h2{font-size:clamp(28px,3.4vw,44px);max-width:760px;margin:0 auto 22px;}
-  .cta-final p{font-size:17px;color:var(--gray);max-width:520px;margin:0 auto 42px;}
+  .cta-final p{font-size:17px;color:var(--gray-on-primary);max-width:520px;margin:0 auto 42px;}
   .cta-final-actions{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
 
-  footer{background:var(--black);color:#9a978f;padding:70px 0 30px;text-align:center;}
-  .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:50px;border-bottom:1px solid #2a2a2a;max-width:var(--wide);margin:0 auto;}
-  footer h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px;}
-  footer .logo{color:var(--white);margin-bottom:16px;display:inline-block;}
-  footer .logo span{color:var(--gold-light);}
+  footer{background:var(--primary-deep);color:var(--gray-on-primary);padding:70px 0 30px;text-align:center;}
+  .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(250,249,246,0.15);max-width:var(--wide);margin:0 auto;}
+  footer h5{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+  footer .logo{color:var(--secondary);margin-bottom:16px;display:inline-block;}
+  footer .logo span{color:var(--gold);}
   footer p{font-size:13.5px;line-height:1.7;max-width:280px;margin:0 auto;}
   footer ul{list-style:none;}
   footer ul li{margin-bottom:12px;font-size:14px;}
-  footer ul li a:hover{color:var(--white);}
-  .footer-bottom{padding-top:26px;display:flex;flex-direction:column;align-items:center;gap:16px;font-size:12px;color:#6b6862;max-width:var(--wide);margin:0 auto;}
+  footer ul li a:hover{color:var(--gold);}
+  .footer-bottom{padding-top:26px;display:flex;flex-direction:column;align-items:center;gap:16px;font-size:12px;color:var(--gray-on-primary);max-width:var(--wide);margin:0 auto;}
   .footer-legal{max-width:760px;line-height:1.7;}
 
   @media (max-width:900px){
@@ -339,7 +355,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo">VÉRTICE<span>.</span></a>
+    <a href="#" class="logo">Fini <span>Capital</span></a>
     <nav class="nav-links">
       <a href="#sobre">Sobre</a>
       <a href="#metodo">Método</a>
@@ -372,13 +388,13 @@
 <main>
 
   <!-- HERO — tela inteira, sem imagem -->
-  <section class="hero">
+  <section class="hero bg-primary">
     <div class="wrap hero-inner">
       <h1 class="reveal">Previsibilidade Financeira não acontece por acaso.<br>Ela <em>se constrói</em>.</h1>
       <svg class="hero-flourish reveal" viewBox="0 0 64 14" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="7" x2="26" y2="7" stroke="#a9812c" stroke-width="1"/>
-        <path d="M32 1 L38 7 L32 13 L26 7 Z" fill="none" stroke="#a9812c" stroke-width="1"/>
-        <line x1="38" y1="7" x2="64" y2="7" stroke="#a9812c" stroke-width="1"/>
+        <line x1="0" y1="7" x2="26" y2="7" stroke="#d3af37" stroke-width="1"/>
+        <path d="M32 1 L38 7 L32 13 L26 7 Z" fill="none" stroke="#d3af37" stroke-width="1"/>
+        <line x1="38" y1="7" x2="64" y2="7" stroke="#d3af37" stroke-width="1"/>
       </svg>
       <p class="hero-sub reveal">Consultoria técnica com acesso a um ecossistema de parceiros homologados. Colocamos crédito, investimentos e proteção patrimonial sob uma única mesa de decisão, para que você compare com dados, não com achismo.</p>
       <div class="hero-ctas reveal">
@@ -388,21 +404,21 @@
   </section>
 
   <!-- SOBRE -->
-  <section class="sobre" id="sobre">
+  <section class="sobre bg-secondary" id="sobre">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Sobre a Vértice</span>
+        <span class="eyebrow">Sobre a Fini Capital</span>
         <h2>Decisões financeiras não deveriam ser tomadas <em>isoladamente</em>.</h2>
       </div>
       <div class="sobre-body reveal">
-        <p>A Vértice nasceu para resolver um problema comum a empresários e famílias: decisões financeiras importantes sendo tomadas isoladas, sem uma análise 360º. Planejamento, Crédito, Investimento e Proteção normalmente passam por interlocutores diferentes, cada um empurrando o produto que vende, não o que resolve.</p>
+        <p>A Fini Capital nasceu para resolver um problema comum a empresários e famílias: decisões financeiras importantes sendo tomadas isoladas, sem uma análise 360º. Planejamento, Crédito, Investimento e Proteção normalmente passam por interlocutores diferentes, cada um empurrando o produto que vende, não o que resolve.</p>
         <p>Atuamos como consultoria técnica e isso significa diagnóstico e análise antes de qualquer recomendação e acesso a múltiplas instituições comparadas, em vez de uma proposta única.</p>
       </div>
     </div>
   </section>
 
   <!-- MÉTODO -->
-  <section class="method" id="metodo">
+  <section class="method bg-primary" id="metodo">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">O Método</span>
@@ -441,7 +457,7 @@
   <!-- PILARES PJ / PF — cards de serviço com ícone -->
   <section class="pillars">
     <div class="wrap">
-      <div class="pillar" id="pj">
+      <div class="pillar bg-secondary" id="pj">
         <span class="pillar-tag">Pessoa Jurídica</span>
         <h3 class="reveal">A empresa cresce.<br>O lucro, <em>você não sabe</em>.</h3>
         <p class="pillar-solution reveal">Você sabe quanto lucra de verdade em cada produto ou serviço? A maioria dos empresários não sabe e isso custa caro. Uma precificação errada, um indicador ignorado, uma decisão de investimento sem análise: cada um desses erros corrói sua margem silenciosamente.</p>
@@ -493,7 +509,7 @@
         <a href="#contato" class="btn btn-ghost reveal">Diagnóstico Empresarial →</a>
       </div>
 
-      <div class="pillar" id="pf">
+      <div class="pillar bg-primary" id="pf">
         <span class="pillar-tag">Pessoa Física</span>
         <h3 class="reveal">O futuro da sua família<br>não pode depender de <em>sorte</em>.</h3>
         <p class="pillar-solution reveal">Você trabalha duro, tem uma boa renda, mas no fim do mês a sensação é que o dinheiro simplesmente desaparece. Sem reserva sólida, sem investimentos, sem proteção real para a sua família. A consultoria financeira pessoal é o mapa que falta: um planejamento 360° que organiza o presente, protege o que você construiu e garante que o futuro da sua família não dependa da sorte.</p>
@@ -548,7 +564,7 @@
   </section>
 
   <!-- PARCEIROS -->
-  <section class="hub-section" id="parceiros">
+  <section class="hub-section bg-secondary" id="parceiros">
     <div class="wrap">
       <span class="eyebrow">O Diferencial</span>
       <div class="section-head reveal" style="margin-bottom:30px;">
@@ -602,11 +618,15 @@
           <div class="eco-card"><div class="eco-card-head"><div class="eco-icon" data-icon="fianca"></div><h4>Seguro Fiança</h4></div><p>Garantia para contratos de locação, sem fiador ou depósito</p></div>
         </div>
       </div>
+
+      <div class="hub-cta reveal">
+        <a href="#contato" class="btn btn-primary">Agendar diagnóstico gratuito <span class="arrow">→</span></a>
+      </div>
     </div>
   </section>
 
   <!-- PRÓXIMO PASSO / CTA FINAL -->
-  <section class="cta-final">
+  <section class="cta-final bg-primary">
     <div class="wrap">
       <span class="eyebrow">Próximo Passo</span>
       <h2 class="reveal">Precisa de auxílio para planejar? Antes de contratar crédito, investimento ou seguro, <em>fale com a gente</em>.</h2>
@@ -615,7 +635,7 @@
     </div>
   </section>
   <!-- DEPOIMENTOS -->
-  <section class="depoimentos" id="depoimentos">
+  <section class="depoimentos bg-secondary" id="depoimentos">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Depoimentos</span>
@@ -652,7 +672,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq" id="faq">
+  <section class="faq bg-primary" id="faq">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Perguntas Frequentes</span>
@@ -661,12 +681,12 @@
 
       <div class="faq-list reveal">
         <details class="faq-item" open>
-          <summary>A Vértice cobra alguma taxa para indicar crédito, seguro ou investimento?</summary>
+          <summary>A Fini Capital cobra alguma taxa para indicar crédito, seguro ou investimento?</summary>
           <p class="faq-answer">A consultoria é remunerada pelo diagnóstico e pelo acompanhamento técnico. Eventuais comissões pagas por parceiros do ecossistema não influenciam a recomendação: o critério é sempre técnico, nunca comercial.</p>
         </details>
         <details class="faq-item">
           <summary>Vocês são um banco ou uma instituição financeira?</summary>
-          <p class="faq-answer">Não. Somos uma consultoria financeira independente. O crédito, o seguro ou o investimento contratado é sempre formalizado diretamente com a instituição parceira homologada, nunca com a Vértice.</p>
+          <p class="faq-answer">Não. Somos uma consultoria financeira independente. O crédito, o seguro ou o investimento contratado é sempre formalizado diretamente com a instituição parceira homologada, nunca com a Fini Capital.</p>
         </details>
         <details class="faq-item">
           <summary>Quanto tempo leva o diagnóstico financeiro?</summary>
@@ -689,11 +709,11 @@
   </section>
 
   <!-- CONTATO -->
-  <section class="contato" id="contato">
+  <section class="contato bg-secondary" id="contato">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Contato</span>
-        <h2>Fale com a <em>Vértice</em>.</h2>
+        <h2>Fale com a <em>Fini Capital</em>.</h2>
         <p>Preencha o formulário para solicitar seu diagnóstico gratuito.</p>
       </div>
 
@@ -712,7 +732,7 @@
       </form>
 
       <div class="contato-info reveal">
-        <div class="contato-info-block"><h4>E-mail</h4><a href="mailto:contato@vertice.com.br">contato@vertice.com.br</a></div>
+        <div class="contato-info-block"><h4>E-mail</h4><a href="mailto:contato@finicapital.com.br">contato@finicapital.com.br</a></div>
         <div class="contato-info-block"><h4>Telefone / WhatsApp</h4><a href="tel:+551100000000">(11) 0000-0000</a></div>
         <div class="contato-info-block"><h4>Endereço</h4><p>[Rua Placeholder, 000]<br>[Cidade / UF] · CEP [00000-000]</p></div>
         <div class="contato-info-block"><h4>Redes</h4><p><a href="#">Instagram</a></p><p><a href="#">LinkedIn</a></p></div>
@@ -725,7 +745,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="#" class="logo">VÉRTICE<span>.</span></a>
+        <a href="#" class="logo">Fini <span>Capital</span></a>
         <p>Consultoria financeira PJ e PF, com acesso a um ecossistema de parceiros homologados para crédito, investimentos e proteção patrimonial.</p>
       </div>
       <div>
@@ -738,15 +758,15 @@
       </div>
       <div>
         <h5>Contato</h5>
-        <ul><li><a href="mailto:contato@vertice.com.br">contato@vertice.com.br</a></li><li><a href="tel:+551100000000">(11) 0000-0000</a></li><li><a href="#contato">Formulário</a></li></ul>
+        <ul><li><a href="mailto:contato@finicapital.com.br">contato@finicapital.com.br</a></li><li><a href="tel:+551100000000">(11) 0000-0000</a></li><li><a href="#contato">Formulário</a></li></ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="footer-legal">
-        VÉRTICE Consultoria Financeira, [Razão Social] · CNPJ [00.000.000/0001-00]. A intermediação de produtos financeiros junto aos parceiros homologados está sujeita a análise e aprovação da instituição parceira responsável. Este material tem caráter informativo e não constitui oferta, promessa de crédito ou recomendação individualizada de investimento.
+        Fini Capital Consultoria Financeira, [Razão Social] · CNPJ [00.000.000/0001-00]. A intermediação de produtos financeiros junto aos parceiros homologados está sujeita a análise e aprovação da instituição parceira responsável. Este material tem caráter informativo e não constitui oferta, promessa de crédito ou recomendação individualizada de investimento.
       </div>
-      <div>© 2026 VÉRTICE.</div>
+      <div>© 2026 Fini Capital.</div>
     </div>
   </div>
 </footer>
